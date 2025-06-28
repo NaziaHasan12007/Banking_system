@@ -34,21 +34,7 @@ public abstract class Account {
     public void setBalance(double balance){
         this.balance=balance;
     }
-
-   /*  public int credit(int amount) {
-        balance+=amount;
-        return balance;
-    }
-
-    public int debit(int amount) {
-        if (amount<=balance) {
-            balance-=amount;
-        } else {
-            System.out.println("Amount exceeded balance");
-        }
-        return balance;
-    }
-    */
+    
     public double transferTo(Account another, double amount) {
         if (amount<=balance) {
             this.balance-=amount;
