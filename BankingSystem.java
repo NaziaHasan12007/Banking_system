@@ -15,9 +15,6 @@ public class BankingSystem {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        /*accounts[count++]=new Account("1","Rahim", 2000);
-        accounts[count++]=new Account("2", "Karim");
-        accounts[count++]=new Account("3", "Amina", 500);*/
         while (true) {
             System.out.println("\n Banking System Menu ---");
             System.out.println("1.Create New Account");
@@ -38,28 +35,34 @@ public class BankingSystem {
                     System.out.print("Enter Initial Balance:");
                     int bal=sc.nextInt();
                     sc.nextLine();
-                    System.out.println("Enter the account type");
-                    String type= sc.nextLine();
+                    System.out.println("Enter the account type\n1.Savings\n2.Current\n3.Deposite Premium");
+                    int type= sc.nextInt();
                     if (bal>0) {
-                        if(type.equals("Savings")){
+                        if(type==1){
                             accounts[count++]=new Savings(newId, newName, bal);
                         }
-                        else if(type.equals("Current")){
+                        else if(type==2){
                             accounts[count++]=new Current(newId, newName, bal);
                         }
+                        else if(type==3){
+                            accounts[count++]=new Deposite_premium(newId, newName, bal);
+                        }
                         else{
-                            accounts[count++]=new Fixed(newId, newName, bal);
+                            System.out.println("Wrong command");
                         }
                     } 
                     else {
-                        if(type.equals("Savings")){
+                        if(type==1){
                             accounts[count++]=new Savings(newId, newName);
                         }
-                        else if(type.equals("Current")){
+                        else if(type==2){
                             accounts[count++]=new Current(newId, newName);
                         }
+                        else if(type==3){
+                            accounts[count++]=new Deposite_premium(newId, newName);
+                        }
                         else{
-                            accounts[count++]=new Fixed(newId, newName);
+                            System.out.println("Wrong command");
                         }
                     }
                     System.out.println("Account created");
@@ -100,12 +103,16 @@ public class BankingSystem {
                     Account fromAcc=findById(fromId);
                     Account toAcc=findById(toId);
                     if (fromAcc!=null && toAcc != null) {
+                        if(fromAcc instanceof Deposite_premium){
+                            System.out.println("Transfer not possible");
+                            break;
+                        }
                         System.out.print("Enter amount:");
                         double amt=sc.nextInt();
                         fromAcc.transferTo(toAcc, amt);
-                        System.out.println("Transfer attempted");
+                        System.out.println("Transfer successful");
                     } else {
-                        System.out.println("One or both accounts not found");
+                        System.out.println("Transfer failed");
                     }
                     break;
                     
