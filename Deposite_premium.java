@@ -1,9 +1,9 @@
-public class Fixed extends Account{
+public class Deposite_premium extends Account{
     int installment=0;
     public Fixed(String id, String name){
         super(id, name);
     }
-    public Fixed(String id, String name, double balance){
+    public Deposite_premium(String id, String name, double balance){
         super(id, name, balance);
     }
     @Override
