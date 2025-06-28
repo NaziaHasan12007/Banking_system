@@ -11,6 +11,7 @@ public class Savings extends Account{
         double profit= newBalance*0.025;
         double netBalance= newBalance+profit;
         setBalance(netBalance);
+        System.out.println("Deposited");
     }
     public void withdraw(double amount){
       if(getBalance()<amount){
@@ -21,7 +22,7 @@ public class Savings extends Account{
       }
       else{
         setBalance(getBalance()-amount);
-
+        System.out.println("Withdraw successful");
       }
    }
 }
