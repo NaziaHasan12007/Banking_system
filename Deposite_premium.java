@@ -1,6 +1,7 @@
 public class Deposite_premium extends Account{
     int installment=0;
-    public Fixed(String id, String name){
+    
+    public  Deposite_premium(String id, String name){
         super(id, name);
     }
     public Deposite_premium(String id, String name, double balance){
@@ -13,6 +14,7 @@ public class Deposite_premium extends Account{
         double profit= newBalance*0.7;
         double netBalance= newBalance+profit;
         setBalance(netBalance);
+        System.out.println("Deposited");
         installment++;
     }
     public void withdraw(double amount){
@@ -25,7 +27,7 @@ public class Deposite_premium extends Account{
       }
       else{
         setBalance(getBalance()-amount);
-        System.out.println("Debited");
+        System.out.println("Withdraw successful");
       }
    }
 }
