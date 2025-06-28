@@ -8,6 +8,7 @@ public class Current extends Account{
     public void deposit(double amount){
         double newBalance= (getBalance()+amount);
         setBalance(newBalance);
+        System.out.println("Deposited");
     }
     public void withdraw(double amount){
       if(getBalance()<amount){
@@ -15,6 +16,7 @@ public class Current extends Account{
       }
       else{
         setBalance(getBalance()-amount);
+          System.out.println("Withdraw Successful");
       }
    }
 }
